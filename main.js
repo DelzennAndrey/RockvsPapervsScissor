@@ -1,35 +1,49 @@
-const rock = document.getElementById('rock');
-const paper =  document.getElementById('paper');
-const scissor =  document.getElementById('scissor');
 const playerOutput = document.getElementById('playerOutput');
 const botOutput = document.getElementById('botOutput');
-let playerChoice = "";
-let botChoice = "";
-let randomChoices = Math.floor(Math.random() * 3 + 1);
+let computerMove = "";
+let result = "";
 
-function choices(value){
-    playerChoice = value;
-}
+function choices(playerMove){
+    computerRandomMove();
 
-if(randomChoices  === 1){
-    botChoice = "rock";
+    if(playerMove == "rock"){
+        if(computerMove == "rock"){
+            result = "tie";
+        } else if(computerMove == "scissor"){
+            result = "you win";
+        } else if(computerMove == "paper"){
+            result = "you lose";
+        }
+    } 
+    else if(playerMove == "paper"){
+        if(computerMove == "paper"){
+            result = "tie";
+        } else if(computerMove == "rock"){
+            result = "you win";
+        } else if(computerMove == "scissor"){
+            result = "you lose";
+        }
+    }
+    else if(playerMove == "scissor"){
+        if(computerMove == "scissor"){
+            result = "tie";
+        } else if(computerMove == "paper"){
+            result = "you win";
+        } else if(computerMove == "rock"){
+            result = "you lose";
+        }
 }
-else if(randomChoices === 2){
-    botChoice = "paper";
+    alert('you pick ' + playerMove +'. '+ 'computer pick ' + computerMove +'. '+ result);
 }
-else if(randomChoices === 3){
-    botChoice = "scissor";
-}
-
-if(playerChoice === botChoice){
-    playerOutput.innerHTML = playerChoice;
-    botOutput.innerHTML = botChoice;
-
-    window.alert("TIE");
-}
-else if(playerChoice > botChoice){
-    playerOutput.innerHTML = playerChoice;
-    botOutput.innerHTML = botChoice;
-
-    window.alert("playerWin");
+function computerRandomMove(){
+    let randomMove = Math.floor(Math.random() * 3 + 1);
+    if(randomMove  == 1){
+        computerMove = "rock";
+    }
+    else if(randomMove == 2){
+        computerMove = "paper";
+    }
+    else if(randomMove == 3){
+        computerMove = "scissor";
+    }
 }
