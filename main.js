@@ -1,9 +1,13 @@
-const playerOutput = document.getElementById('playerOutput');
-const botOutput = document.getElementById('botOutput');
+const playerOutputmove = document.getElementById('playerOutput');
+const computerOutputMove = document.getElementById('botOutput');
+const playerOutputScore = document.getElementById('playerScore');
+const computerOutputScore = document.getElementById('computerScore')
 let computerMove = "";
 let result = "";
+let computerScore = 0;
+let playerScore = 0;
 
-function choices(playerMove){
+function move(playerMove){
     computerRandomMove();
 
     if(playerMove == "rock"){
@@ -11,8 +15,10 @@ function choices(playerMove){
             result = "tie";
         } else if(computerMove == "scissor"){
             result = "you win";
+            playerScore += 1;
         } else if(computerMove == "paper"){
             result = "you lose";
+            computerScore += 1;
         }
     } 
     else if(playerMove == "paper"){
@@ -20,8 +26,10 @@ function choices(playerMove){
             result = "tie";
         } else if(computerMove == "rock"){
             result = "you win";
+            playerScore += 1;
         } else if(computerMove == "scissor"){
             result = "you lose";
+            computerScore += 1;
         }
     }
     else if(playerMove == "scissor"){
@@ -29,11 +37,27 @@ function choices(playerMove){
             result = "tie";
         } else if(computerMove == "paper"){
             result = "you win";
+            playerScore += 1;
         } else if(computerMove == "rock"){
             result = "you lose";
+            computerScore += 1;
         }
 }
-    alert('you pick ' + playerMove +'. '+ 'computer pick ' + computerMove +'. '+ result);
+    computerOutputScore.innerHTML = computerScore;
+    playerOutputScore.innerHTML = playerScore;
+    playerOutputmove.innerHTML = "player pick" + playerMove;
+    computerOutputMove.innerHTML = "computer pick" + computerMove;
+    
+    
+    if(playerScore === 3){
+        alert("playerWin");
+        playerScore = 0;
+        computerScore = 0;
+    } else if(computerScore === 3){
+        alert("computerWin");
+        playerScore = 0;
+        computerScore = 0;
+    }    
 }
 function computerRandomMove(){
     let randomMove = Math.floor(Math.random() * 3 + 1);
@@ -47,3 +71,5 @@ function computerRandomMove(){
         computerMove = "scissor";
     }
 }
+
+    
