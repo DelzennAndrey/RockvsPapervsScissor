@@ -50,7 +50,6 @@ function move(playerMove){
     playerOutputScore.innerHTML = playerScore;
     
     winner();
-    
 }
 function computerRandomMove(){
     let randomMove = Math.floor(Math.random() * 3 + 1);
@@ -65,6 +64,7 @@ function computerRandomMove(){
     }
 }
 
+
 function winner(){
     if(playerScore == 3){
         alert("playerWin");
@@ -76,4 +76,5 @@ function winner(){
         computerScore = 0;
     }    
 }
+
     
