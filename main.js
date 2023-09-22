@@ -1,10 +1,10 @@
 const playerOutputmove = document.getElementById('playerOutput');
-const computerOutputMove = document.getElementById('botOutput');
-const playerOutputScore = document.getElementById('playerScore');
-const computerOutputScore = document.getElementById('computerScore');
+const computerOutputMove = document.getElementById('computerOutput');
+const playerScore = document.getElementById('playerScore');
+const computerScore = document.getElementById('computerScore');
 const winnerResult = document.getElementById('winner');
-let computerMove = "";
 let result = "";
+let computerMove = "";
 
 let score = {
     computerScore:0,
@@ -16,42 +16,43 @@ function move(playerMove){
    
     if(playerMove == "rock"){
         if(computerMove == "rock"){
-            result = "tie";
+            result = "Tie";
         } else if(computerMove == "scissor"){
-            result = "you win";
             score.playerScore += 1;
+            result = "Player Score";
         } else if(computerMove == "paper"){
-            result = "you lose";
-            score.computercore += 1;
+            score.computerScore += 1;
+            result = "Computer Score";
         }
     } 
     else if(playerMove == "paper"){
         if(computerMove == "paper"){
-            result = "tie";
+            result = "Tie";
         } else if(computerMove == "rock"){
-            result = "you win";
            score.playerScore += 1;
+           result = "Player Score";
         } else if(computerMove == "scissor"){
-            result = "you lose";
             score.computerScore += 1;
+            result = "Computer Score";
         }
     }
     else if(playerMove == "scissor"){
         if(computerMove == "scissor"){
-            result = "tie";
+            result = "Tie";
         } else if(computerMove == "paper"){
-            result = "you win";
             score.playerScore += 1;
+            result = "Player Score";
         } else if(computerMove == "rock"){
-            result = "you lose";
             score.computerScore += 1;
+            result = "Computer Score";
         }
     }
-    playerOutputmove.innerHTML = "player pick" + playerMove;
-    computerOutputMove.innerHTML = "computer pick" + computerMove;
     
-    computerOutputScore.innerHTML = score.computerScore;
-    playerOutputScore.innerHTML = score.playerScore;
+    playerOutputmove.innerHTML =`<img src="png/${playerMove}.png" alt="">`;
+    computerOutputMove.innerHTML = `<img src="png/${computerMove}.png" alt="">`;
+    computerScore.innerHTML = score.computerScore;
+    playerScore.innerHTML = score.playerScore;
+    winnerResult.innerHTML = result;
     winner();
 }
 function computerRandomMove(){
@@ -72,12 +73,11 @@ function winner(){
         if(score.playerScore == 3){
             score.playerScore = 0;
             score.computerScore = 0;
-            winnerResult.innerHTML = "Player Win";
+            winnerResult.innerHTML = "Game Over Player Win";
         } else if(score.computerScore == 3){
             score.playerScore = 0;
             score.computerScore = 0;
-            winnerResult.innerHTML ="Computer Win";
+            winnerResult.innerHTML ="Game Over Computer Win";
         }   
     }
-    console.log(score());
     

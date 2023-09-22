@@ -3,22 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RockvsPapervsScissor</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="playerOutput"></div>
-    <div id="botOutput"></div>
-    <div>
-        <button onclick="move('rock')">Rock</button>
-        <button onclick="move('paper')">Paper</button>
-        <button onclick="move('scissor')">Scissor</button>
-    </div>
-    <div>
+    <div class="game"> 
+        <h1>RockvsPapervsScissor</h1>        
+       
+    
+        <p class="result" id="winner">Winner?</p>
 
-        <span>PlayerScore: <span id="playerScore">0</span> </span>
-        <span>ComputerScore: <span id="computerScore">0</span> </span>
-        <span id="winner"></span>
+        <div class="play">
+            <div class="player">
+                <p>Player</p>
+                <p id="playerScore">0</p>
+                <div id="playerOutput"><img src="png/rock.png" alt=""></div>
+            </div>
+    
+            <p>VS</p>
+    
+           <div class="computer">
+               <p>Computer</p>
+               <p id="computerScore">0</p>
+               <div id="computerOutput"><img src="png/rock.png" alt=""></div>
+           </div>
+        </div>
+        <p>Pick Your Move</p>
+        <div class="options">
+            <button onclick="move('rock')">Rock</button>
+            <button onclick="move('paper')">Paper</button>
+            <button onclick="move('scissor')">Scissor</button>
+        </div>
+    </div>
+    
     </div>
     <script src="main.js"></script>
 </body>
