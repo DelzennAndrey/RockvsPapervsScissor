@@ -57,13 +57,13 @@ button:hover{
     background: #4851ff;
 }
 @media only screen and (max-width:600px){
+    body{
+        margin-top: 15%;
+    }
     .game{
         gap: 10px;
     }
-    p{
-        font-size: 15px;
-    }
-    h1{
+    p,h1{
         font-size: 20px;
     }
     .computer div,.player div{

@@ -72,12 +72,12 @@ function computerRandomMove(){
 
 
 function winner(){
-        if(score.playerScore === score.scoreLimit){
+        if(score.playerScore == score.scoreLimit){
             score.scoreLimit = 1;
             score.playerScore = 0;
             score.computerScore = 0;
             result = "Game Over Player Win";
-        } else if(score.computerScore === score.scoreLimit){
+        } else if(score.computerScore == score.scoreLimit){
             score.scoreLimit = 1;
             score.playerScore = 0;
             score.computerScore = 0;
