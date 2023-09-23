@@ -80,11 +80,13 @@ function winner(){
 
     function scoreLimit (){
         while(true){
-            let limit = window.prompt('Enter Limit Score. Note! You must enter a number.');
+            let limit = parseInt(window.prompt('Enter Limit Score. Note! You must enter a number.'), 10);
             if(!/[0-9]/.test(limit)){
                 window.alert("Input invalid!. Number only. Try again!");
+                return false;
             } else if(limit < score.scoreLimit){
-                window.alert("Input invalid!. Your entry score is less than the previous score. Try again");
+                window.alert(`Input invalid!. Your entry score is less than the previous score(${score.scoreLimit}). Try again`);
+                return false;
             } else{
                 score.scoreLimit = limit;
                 return false;
@@ -95,7 +97,10 @@ function winner(){
     function reset(){
         score.playerScore = 0;
         score.computerScore = 0;
+        score.scoreLimit = 1;
         document.getElementById('playerScore').innerHTML = score.playerScore;
         document.getElementById('computerScore').innerHTML = score.computerScore;
         document.getElementById('winner').innerHTML = "Winner?";
+        document.getElementById('playerOutput').innerHTML =`<img src="png/rock.png" alt="">`;
+        document.getElementById('computerOutput').innerHTML = `<img src="png/rock.png" alt="">`;
     }
