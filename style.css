@@ -23,6 +23,12 @@ p,h1{
     width: auto;
     height: auto;
 }
+.player p{
+    color: #382aff;
+}
+.computer p{
+    color: #ff1e1e;
+}
 .computer div, .player div{
     width: auto;
     height: 100px;
@@ -39,29 +45,47 @@ p,h1{
 .computer div img{
     transform: rotate(270deg);
 }
-.options,.limit-div{
+.options{
     display: flex;
     justify-content: center;
     margin-top: 50px;
     gap: 20px;
     margin: 10px;
 }
-button{
-    font-size: 20px;
+.options button{
     padding: 10px;
     color: #ffffff;
-    background-color: #000000;
+    background-color: transparent;
     border: #ffffff solid;
+    border-radius: 50%;
 }
-button:hover{
-    background: #4851ff;
+.options button img{
+    width: 50px;
+    height: 50px;
+}
+.options button:hover{
+    background-color: #ffffff67;
+}
+.limit-div{
+    text-align: center;
+}
+.limit-div button{
+    color: #ffffff;
+    background-color: #00000000;
+    border: #ffffff solid;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 20px;
+}
+.limit-div button:hover{
+    background-color: #fc2a2a;
 }
 @media only screen and (max-width:600px){
     body{
         margin-top: 15%;
     }
     .game{
-        gap: 10px;
+        gap: 20px;
     }
     p,h1{
         font-size: 20px;
@@ -74,11 +98,7 @@ button:hover{
         width:80px;
         height: auto;
     }
-    button{
-        font-size: 15px;
-        padding: 5px;
-    }
     .options{
-        gap:10px;
+        gap:15px;
     }
 }

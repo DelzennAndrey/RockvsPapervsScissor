@@ -7,13 +7,9 @@ let score = {
     scoreLimit:1
 }
 
-function limit (){
-    let limit = window.prompt("Enter Limit Score");
-    score.scoreLimit = limit;
-}
-
 function game(playerMove){
     computerRandomMove();
+
     if(playerMove == "rock"){
         if(computerMove == "rock"){
             result = "Tie";
@@ -70,18 +66,36 @@ function computerRandomMove(){
     }
 }
 
-
 function winner(){
         if(score.playerScore == score.scoreLimit){
-            score.scoreLimit = 1;
             score.playerScore = 0;
             score.computerScore = 0;
             result = "Game Over Player Win";
         } else if(score.computerScore == score.scoreLimit){
-            score.scoreLimit = 1;
             score.playerScore = 0;
             score.computerScore = 0;
             result ="Game Over Computer Win";
         }   
     }
- 
+
+    function scoreLimit (){
+        while(true){
+            let limit = window.prompt('Enter Limit Score. Note! You must enter a number.');
+            if(!/[0-9]/.test(limit)){
+                window.alert("Input invalid!. Number only. Try again!");
+            } else if(limit < score.scoreLimit){
+                window.alert("Input invalid!. Your entry score is less than the previous score. Try again");
+            } else{
+                score.scoreLimit = limit;
+                return false;
+            }
+        }
+    }
+
+    function reset(){
+        score.playerScore = 0;
+        score.computerScore = 0;
+        document.getElementById('playerScore').innerHTML = score.playerScore;
+        document.getElementById('computerScore').innerHTML = score.computerScore;
+        document.getElementById('winner').innerHTML = "Winner?";
+    }

@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RockvsPapervsScissor</title>
+    <title>Rock vs Paper vs Scissor</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <h1>RockvsPapervsScissor</h1>        
+        <h1>
+            <span style="color:#ff5a5a ;">Rock</span> vs 
+            <span style="color: #f5ff6c;">Paper</span> vs 
+            <span style="color: #6c4fff;">Scissor</span>
+        </h1>        
        
-    
         <p class="result" id="winner">Winner?</p>
 
         <div class="game">
@@ -19,7 +22,10 @@
                 <div id="playerOutput"><img src="png/rock.png" alt=""></div>
             </div>
     
-            <p>VS</p>
+            <p>
+                <span style="color: #4f2bff;">V</span>
+                <span style="color: #ff3131;">S</span>
+            </p>
     
            <div class="computer">
                <p>Computer</p>
@@ -29,14 +35,16 @@
         </div>
         <p>Pick Your Move</p>
         <div class="options">
-            <button onclick="game('rock')">Rock</button>
-            <button onclick="game('paper')">Paper</button>
-            <button onclick="game('scissor')">Scissor</button>
+            <button onclick="game('rock')"><img src="png/rock.png" alt=""></button>
+            <button onclick="game('paper')"><img src="png/paper.png" alt=""></button>
+            <button onclick="game('scissor')"><img src="png/scissor.png" alt=""></button>
         </div>
     </div>
-    <p>Enter Score Limit</p>
+
     <div class="limit-div">
-        <button onclick="limit()">Enter Score</button>
+        <p>Enter Score Limit</p>
+        <button onclick="scoreLimit()">Enter Score</button>
+        <button onclick="reset()">Reset Score</button>
     </div>
     <script src="main.js"></script>
 </body>
